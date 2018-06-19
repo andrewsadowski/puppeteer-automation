@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "estimate": "node scripts/estimate-scripts.js",
+    "jira": "node scripts/jira-scripts.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.5.0"
+  }
+}
