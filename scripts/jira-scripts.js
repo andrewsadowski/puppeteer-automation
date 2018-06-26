@@ -23,7 +23,7 @@ jira.attachment.getAttachment(
   {
     attachmentId: 'HCL-25'
   },
-  function(error, attachem) {
-    console.log(issue.fields.summary);
+  function(error, attachment) {
+    console.log(attachment);
   }
 );
