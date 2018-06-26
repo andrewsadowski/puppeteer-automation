@@ -18,3 +18,12 @@ jira.issue.getIssue(
     console.log(issue.fields.summary);
   }
 );
+
+jira.attachment.getAttachment(
+  {
+    attachmentId: 'HCL-25'
+  },
+  function(error, attachem) {
+    console.log(issue.fields.summary);
+  }
+);
