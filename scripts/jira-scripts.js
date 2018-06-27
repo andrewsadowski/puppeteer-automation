@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const request = require('request');
 const JiraClient = require('jira-connector');
 const { jiraAuth1 } = require('../auth.js');
 
