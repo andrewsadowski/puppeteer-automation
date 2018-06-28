@@ -33,7 +33,7 @@ jira.issue.getIssue(
     console.log(issue.fields.summary);
   }
 );
-const jqlOutput = [];
+//Takes a JQL Filter and returns object with related Issues
 jira.search.search(
   {
     jql:
@@ -42,8 +42,6 @@ jira.search.search(
   (error, issue) => {
     if (error) throw err;
     writeOutputToFile(issue);
-
-    jqlOutput.push({ ...issue });
     console.log(jqlOutput);
     console.log(issue);
   }
