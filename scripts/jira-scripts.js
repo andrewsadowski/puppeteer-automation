@@ -1,7 +1,21 @@
 const puppeteer = require("puppeteer");
 const request = require("request");
 const JiraClient = require("jira-connector");
+const fs = require("fs");
 const { jiraAuth1 } = require("../auth.js");
+
+const writeOutputToFile = jiraData => {
+  const content = JSON.stringify(jiraData);
+  fs.writeFileSync(
+    "./output/jiraOutput.json",
+    content,
+    "utf8",
+    err => {
+      if (err) throw err;
+      console.log("File was saved");
+    }
+  );
+};
 
 const jira = new JiraClient({
   host: "tracker.welocalize.com",
@@ -19,21 +33,19 @@ jira.issue.getIssue(
     console.log(issue.fields.summary);
   }
 );
-
+const jqlOutput = [];
 jira.search.search(
   {
     jql:
       'project = GOOGLE AND "Google Falcon ID" = GOOGLE_1707_11518_Multimedia_review'
   },
   (error, issue) => {
-    console.log(
-      issue.fields.issueKey,
-      issue.fields.issuetype.name,
-      issue.fields.summary,
-      issue.fields.status.name,
-      issue.fields.resolution.name,
-      issue.fields.labels
-    );
+    if (error) throw err;
+    writeOutputToFile(issue);
+
+    jqlOutput.push({ ...issue });
+    console.log(jqlOutput);
+    console.log(issue);
   }
 );
 

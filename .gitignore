@@ -46,3 +46,4 @@ node_modules/
 
 # Private #
 auth.js
+output/
