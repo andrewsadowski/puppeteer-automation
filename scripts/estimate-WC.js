@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const wordCount = require('html-word-count');
+const fs = require('fs');
 
 async function run() {
   const browser = await puppeteer.launch();
