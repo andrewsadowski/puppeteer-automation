@@ -9,9 +9,14 @@ const parseUrls = () => {
 };
 
 const exportWCToCSV = (url, wordcount) => {
-  fs.writeFileSync('./output/URL_WC.csv');
+  let concatData = url + '\t' + wordcount;
+  fs.appendFile('./output/URL_WC.csv', concatData, (err) => {
+    if (err) throw err;
+    console.log('File appended to...')
+  });
 };
 
 module.exports = {
-  parseUrls
+  parseUrls,
+  exportWCToCSV
 };
