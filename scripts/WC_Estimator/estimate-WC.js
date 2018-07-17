@@ -1,7 +1,7 @@
-const puppeteer = require("puppeteer");
-const wordCount = require("html-word-count");
-const fs = require("fs");
-const { parseUrls } = require("../helper.js");
+const puppeteer = require('puppeteer');
+const wordCount = require('html-word-count');
+const fs = require('fs');
+const { parseUrls } = require('../helper.js');
 
 // async function run() {
 //   const browser = await puppeteer.launch();
@@ -23,16 +23,16 @@ const { parseUrls } = require("../helper.js");
 
 async function processWCLinks() {
   const urls = parseUrls();
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-
-  urls.forEach(async url => {
+  console.log(urls);
+  for (const url of urls) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
     await page.goto(url);
     const html = await page.content();
     let WC = await wordCount(html);
     console.log(WC);
-  });
-  browser.close();
+    browser.close();
+  }
 }
 
 processWCLinks();
