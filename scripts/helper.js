@@ -12,7 +12,7 @@ const exportWCToCSV = (url, wordcount) => {
   let concatData = url + '\t' + wordcount;
   fs.appendFile('./output/URL_WC.csv', concatData, (err) => {
     if (err) throw err;
-    console.log('File appended to...')
+    console.log('File appended to...');
   });
 };
 
