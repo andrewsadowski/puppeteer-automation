@@ -1,7 +1,10 @@
 const puppeteer = require('puppeteer');
 const wordCount = require('html-word-count');
 const fs = require('fs');
-const { parseUrls } = require('../helper.js');
+const {
+  parseUrls,
+  exportWCToCSV
+} = require('../helper.js');
 
 // async function run() {
 //   const browser = await puppeteer.launch();
@@ -32,6 +35,7 @@ async function processWCLinks() {
     let WC = await wordCount(html);
     console.log(WC);
     browser.close();
+    exportWCToCSV(url, WC);
   }
 }
 
