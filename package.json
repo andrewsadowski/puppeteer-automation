@@ -6,8 +6,8 @@
   "scripts": {
     "estimate": "node scripts/WC_Estimator/estimate-scripts.js",
     "estimate-watch": "nodemon scripts/WC_Estimator/estimate-scripts.js",
-    "jira": "node scripts/jira-scripts.js",
-    "jira-watch": "nodemon scripts/jira-scripts.js"
+    "jira": "node scripts/Jira_Automator/jira-scripts.js",
+    "jira-watch": "nodemon scripts/Jira_Automator/jira-scripts.js"
   },
   "author": "",
   "license": "ISC",
