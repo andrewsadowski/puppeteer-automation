@@ -13,7 +13,7 @@ async function processWCLinks() {
 
   //Loop through URL array, launch puppeteer, grab html content,
   //Get a word count => write it to the output csv file
-  for (const url of urls) {
+  for (let url of urls) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "estimate": "node scripts/estimate-scripts.js",
-    "estimate-watch": "nodemon scripts/estimate-scripts.js",
+    "estimate": "node scripts/WC_Estimator/estimate-scripts.js",
+    "estimate-watch": "nodemon scripts/WC_Estimator/estimate-scripts.js",
     "jira": "node scripts/jira-scripts.js",
     "jira-watch": "nodemon scripts/jira-scripts.js"
   },
