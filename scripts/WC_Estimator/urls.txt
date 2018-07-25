@@ -1,4 +1,2 @@
-https://medium.com/
-https://www.google.com/
-https://www.npmjs.com/
-https://www.wikipedia.org/
+http://www.bbc.com/arabic
+http://www.bbc.com/

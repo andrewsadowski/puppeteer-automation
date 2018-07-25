@@ -5,10 +5,14 @@ const fs = require('fs');
  * @return {Array} Array of URL strings
  */
 const parseUrls = () => {
-  const urlArr = fs
+  const urlArr = [];
+  const urls = fs
     .readFileSync('./scripts/WC_Estimator/urls.txt')
     .toString()
     .split('\n');
+  urls.forEach(url => {
+    if (url) urlArr.push(url);
+  });
   return urlArr;
 };
 

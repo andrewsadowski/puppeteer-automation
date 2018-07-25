@@ -1,11 +1,13 @@
 const fs = require('fs');
 
 const puppeteer = require('puppeteer');
-const wordCount = require('html-word-count');
+const htmlToText = require('html-to-text');
+const wordCount = require('@iarna/word-count');
 
 const {
   parseUrls,
-  exportToCSV
+  exportToCSV,
+  exportToText
 } = require('../helper.js');
 
 /**
@@ -25,10 +27,14 @@ const {
     const page = await browser.newPage();
     await page.goto(url);
     const html = await page.content();
-    const WC = await wordCount(html);
+    const text = htmlToText.fromString(html, {
+        wordwrap: false,
+        ignoreHref: true,
+        ignoreImage: true
+    });
     browser.close();
 
     //Format CSV data with tab and line break and append to csv file
-    exportToCSV(url + '\t' + WC);
+    exportToCSV(url + '\t' + wordCount(text));
   }
 })();
