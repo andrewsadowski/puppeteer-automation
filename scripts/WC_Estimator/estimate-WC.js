@@ -8,13 +8,15 @@ const {
   exportToCSV
 } = require('../helper.js');
 
-async function processWCLinks() {
+/**
+ * Gets word count of each URL in URL array
+ */
+(async () => {
   //Create URL array fomr urls.txt file
   const urls = parseUrls();
-  console.log(urls);
 
   // Create CSV header
-  exportToCSV('URL' + '\t' + 'Word Count' + '\n');
+  exportToCSV('URL' + '\t' + 'Word Count');
 
   //Loop through URL array, launch puppeteer, grab html content,
   //Get a word count => write it to the output csv file
@@ -27,11 +29,9 @@ async function processWCLinks() {
     browser.close();
 
     //Format CSV data with tab and line break and append to csv file
-    exportToCSV(url + '\t' + WC + '\n');
+    exportToCSV(url + '\t' + WC);
   }
-}
-
-processWCLinks();
+})();
 
 //Previous async function for getting wc
 // async function run() {
