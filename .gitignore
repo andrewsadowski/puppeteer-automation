@@ -46,3 +46,5 @@ node_modules/
 
 # Private #
 auth.js
+output/wc/*.csv
+output/screenshots/*.png

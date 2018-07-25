@@ -18,7 +18,7 @@ const parseUrls = () => {
  */
 const exportToCSV = data => {
   //create/append data to file
-  fs.appendFile('./scripts/WC_Estimator/output/URL_WC.csv', data + '\n', err => {
+  fs.appendFile('./output/wc/URL_WC.csv', data + '\n', err => {
     if (err) throw err;
     console.log(data);
   });

@@ -20,7 +20,7 @@ const {
 
   //Loop through URL array, launch puppeteer, grab html content,
   //Get a word count => write it to the output csv file
-  for (let url of urls) {
+  for (const url of urls) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
@@ -32,22 +32,3 @@ const {
     exportToCSV(url + '\t' + WC);
   }
 })();
-
-//Previous async function for getting wc
-// async function run() {
-//   const browser = await puppeteer.launch();
-
-//   const page = await browser.newPage();
-//   await page.goto("https://github.com");
-//   const html = await page.content();
-//   console.log(html);
-//   let ghWC = await wordCount(html);
-//   console.log(ghWC);
-//   // await page.screenshot({ path: 'screenshots/github.png' });
-//   // await page.goto('https://github.com/andrewsadowski');
-//   // await page.screenshot({ path: 'screenshots/github-profile.png' });
-
-//   browser.close();
-// }
-
-// run();

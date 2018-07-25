@@ -1,8 +1,7 @@
 {
   "name": "puppeteer-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "estimate": "node scripts/WC_Estimator/estimate-WC.js",
     "estimate-watch": "nodemon scripts/WC_Estimator/estimate-WC.js",
