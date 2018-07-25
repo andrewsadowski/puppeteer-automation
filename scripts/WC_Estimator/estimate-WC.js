@@ -1,15 +1,20 @@
+const fs = require('fs');
+
 const puppeteer = require('puppeteer');
 const wordCount = require('html-word-count');
-const fs = require('fs');
+
 const {
   parseUrls,
-  exportWCToCSV
+  exportToCSV
 } = require('../helper.js');
 
 async function processWCLinks() {
   //Create URL array fomr urls.txt file
   const urls = parseUrls();
   console.log(urls);
+
+  // Create CSV header
+  exportToCSV('URL' + '\t' + 'Word Count' + '\n');
 
   //Loop through URL array, launch puppeteer, grab html content,
   //Get a word count => write it to the output csv file
@@ -20,7 +25,9 @@ async function processWCLinks() {
     const html = await page.content();
     const WC = await wordCount(html);
     browser.close();
-    exportWCToCSV(url, WC);
+
+    //Format CSV data with tab and line break and append to csv file
+    exportToCSV(url + '\t' + WC + '\n');
   }
 }
 
