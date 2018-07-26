@@ -6,8 +6,7 @@ const wordCount = require('@iarna/word-count');
 
 const {
   parseUrls,
-  exportToCSV,
-  exportToText
+  exportToCSV
 } = require('../helper.js');
 
 /**
@@ -28,9 +27,9 @@ const {
     await page.goto(url);
     const html = await page.content();
     const text = htmlToText.fromString(html, {
-        wordwrap: false,
-        ignoreHref: true,
-        ignoreImage: true
+      wordwrap: false,
+      ignoreHref: true,
+      ignoreImage: true
     });
     browser.close();
 
