@@ -1,24 +1,28 @@
-const puppeteer = require("puppeteer");
-const request = require("request");
-const JiraClient = require("jira-connector");
-const fs = require("fs");
-const { jiraAuth1 } = require("../auth.js");
+const puppeteer = require('puppeteer');
+const request = require('request');
+const JiraClient = require('jira-connector');
+const fs = require('fs');
+const { jiraAuth1 } = require('../auth.js');
+
+/**
+ * @param {object} object of jiraData
+ */
 
 const writeOutputToFile = jiraData => {
   const content = JSON.stringify(jiraData);
   fs.writeFileSync(
-    "./output/jiraOutput.json",
+    './output/jiraOutput.json',
     content,
-    "utf8",
+    'utf8',
     err => {
       if (err) throw err;
-      console.log("File was saved");
+      console.log('File was saved');
     }
   );
 };
 
 const jira = new JiraClient({
-  host: "tracker.welocalize.com",
+  host: 'tracker.welocalize.com',
   basic_auth: {
     username: jiraAuth1.username,
     password: jiraAuth1.password
@@ -27,7 +31,7 @@ const jira = new JiraClient({
 
 jira.issue.getIssue(
   {
-    issueKey: "HCL-25"
+    issueKey: 'HCL-25'
   },
   function(error, issue) {
     console.log(issue.fields.summary);
@@ -54,5 +58,4 @@ jira.attachment.getAttachment(
   function(error, attachment) {
     console.log(attachment);
   }
-  
 );
