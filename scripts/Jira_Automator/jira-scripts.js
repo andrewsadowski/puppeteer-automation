@@ -3,6 +3,7 @@ const request = require('request');
 const JiraClient = require('jira-connector');
 const fs = require('fs');
 const { jiraAuth1 } = require('../auth.js');
+const argv = require('yargs').argv;
 
 /**
  * @param {object} object of jiraData
