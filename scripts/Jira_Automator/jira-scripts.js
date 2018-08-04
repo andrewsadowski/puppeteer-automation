@@ -21,6 +21,8 @@ const writeOutputToFile = jiraData => {
   );
 };
 
+//Handles jira instance authentication from auth.js object
+//Note: you must provide your own authentication information
 const jira = new JiraClient({
   host: 'tracker.welocalize.com',
   basic_auth: {
