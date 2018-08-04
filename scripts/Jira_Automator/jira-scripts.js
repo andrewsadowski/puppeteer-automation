@@ -47,11 +47,12 @@ jira.search.search(
   }
 );
 
-// jira.attachment.getAttachment(
-//   {
-//     attachmentId: 'HCL-25'
-//   },
-//   function(error, attachment) {
-//     console.log(attachment);
-//   }
-// );
+jira.attachment.getAttachment(
+  {
+    attachmentId: 'HCL-25'
+  },
+  function(error, attachment) {
+    console.log(attachment);
+  }
+  
+);
